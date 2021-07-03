@@ -65,7 +65,7 @@ export default class User extends React.Component{
         // console.log(this.state.note);
     }
 
-    Added(){
+    Added(){ 
         const note = this.state.note
         console.log(note);
         Axios.post(`http://localhost:5000/${this.props.location.state.id}/note`, note)
