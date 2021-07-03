@@ -1,0 +1,85 @@
+
+
+/* 
+
+.logo{
+    display: inline-block;
+    border: 2px solid black;
+    width: 150px;
+    height: 400px;
+} */
+
+.cont{
+    display: flex;
+    flex-direction: row;
+    box-shadow: 0 15px 11px 0 rgb(0 0 0 / 28%), 0 16px 29px 0 rgb(0 0 0 / 28%);
+    margin: auto;
+    margin-top: 95px;
+    border: 2px solid none;
+    width: 689px;
+    height: 398px;
+}
+.logo{
+    background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+    /* display: inline-block; */
+    /* border: 2px solid green; */
+    width: 250px;
+    height: 398px;
+}
+.info{
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #f8f8f8 100%);
+    /* display: inline-block; */
+    /* border: 2px solid green; */
+    width: 438px;
+    height: 398px;
+    margin: 0px;
+}
+
+img{
+    margin-top: 90px;
+    margin-left: 100px;
+}
+.logo h3{
+    margin-left: 90px;
+}
+
+.info .inputTag{
+    margin: 22px 15px;
+    display: flex;
+    flex-direction: column;
+}
+.info h3{
+    margin-top: 16px;
+    margin-left: 15px;
+}
+.email{
+    margin: 12px 15px;
+}
+
+.email input{
+    width: 350px;
+    margin-top: 10px;
+    padding: 4px;
+    border: 2px solid black;
+    outline: none;
+    font-weight: 597px;
+    border-style: none;
+    height: 20px;
+}
+
+.btnn{
+    outline: none;
+    margin-left: 140px;
+    /* border: 2px solid black; */
+}
+
+.btnsize{
+    outline: none;
+    border-radius: 14px;
+    height: 31px;
+}
+
+.editlogo{
+    margin-top: 52px;
+    margin-left: 113px;
+}
