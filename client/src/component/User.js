@@ -4,6 +4,7 @@ import Axios from 'axios'
 import './css-work/css.css'
 import logo from './logo.png';
 import { VscEdit, VscSave } from "react-icons/vsc";
+import axios from "axios";
 
 
 export default class User extends React.Component{
@@ -21,8 +22,10 @@ export default class User extends React.Component{
             email:"",
             password:"",
             loggedIn,
-            changeIcon:false
+            changeIcon:false,
+            note:''
         }
+        this.noteAdded = this.noteAdded.bind(this)
     }
 
     componentDidMount(props){
@@ -50,6 +53,21 @@ export default class User extends React.Component{
         this.setState({
             changeIcon: !this.state.changeIcon
         })
+    }
+
+    noteAdded(event){
+        this.setState({
+            note: event.target.value
+        })
+    }
+
+    Added(){
+        const note = this.state.note
+        axios.post('/user/note', note)
+        .then( response =>{
+            console.log(response)
+        })
+        .catch(error => console.log(error))
     }
 
     render(){
@@ -81,20 +99,26 @@ export default class User extends React.Component{
                 <div className="inputTag">
                     <div className="email" >
                         Username :
-                        <input type="text" name="username" value={this.state.username} placeholder="Username"  />
+                        <input key={this.state.id} type="text" name="username" value={this.state.username} placeholder="Username"  />
                     </div>
                     <div className="email">
                         Email :
-                        <input type="text" name="email" value={this.state.email} placeholder="Email" />
+                        <input key={this.state.id} type="text" name="email" value={this.state.email} placeholder="Email" />
                     </div>
                     <div className="email">
                         Password :
-                        <input type="text" name="password" value={this.state.password} placeholder="Password" />
+                        <input key={this.state.id} type="text" name="password" value={this.state.password} placeholder="Password" />
+                    </div>
+                    <div>
+                        <textarea key={this.state.id} type='text' rows="4" cols="50" value={this.state.note}  onChange={this.noteAdded} />
+                        <div>
+                            <button onAdd={this.Added} >Add this note</button>
+                        </div>
                     </div>
 
                 </div>
                 <div className="btnn">
-                    <button className="btnsize" onClick={this.logout} >Logout</button>
+                    <button className="btnsize" onClick={this.logout}  >Logout</button>
                 </div>
             </div>
             )
