@@ -45,6 +45,20 @@ app.get('/:email/getData', (req, res) => {
     })
 })
 
+app.post('/:email/note', (request, response)=>{
+    console.log("99999999999999999")
+    console.log(request.body)
+    console.log('9999999999999999999')
+    const note = new sigin({note:request.body.note})
+    console.log("888888888888888888")
+    console.log(note);
+    console.log("888888888888888888")
+
+    note.save()
+    .then(data => response.json(data))
+    .catch(error => response.json(error))
+})
+
 
 
 app.post('/reg', (request, response) => {

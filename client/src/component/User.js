@@ -4,8 +4,9 @@ import Axios from 'axios'
 import './css-work/css.css'
 import logo from './logo.png';
 import { VscEdit, VscSave } from "react-icons/vsc";
-import axios from "axios";
+// import axios from "axios";
 
+let updateState
 
 export default class User extends React.Component{
 
@@ -23,11 +24,12 @@ export default class User extends React.Component{
             password:"",
             loggedIn,
             changeIcon:false,
-            note:''
+            note:" "
         }
         this.noteAdded = this.noteAdded.bind(this)
+        this.Added= this.Added.bind(this)
     }
-
+ 
     componentDidMount(props){
         console.log(this.props.location.state.id)
         Axios.get(`http://localhost:5000/${this.props.location.state.id}/getData`)
@@ -41,6 +43,7 @@ export default class User extends React.Component{
             // this.setState({posts: respone.data})
         })
     //     // .catch(console.log("error"))
+    
     }
 
     logout(){
@@ -57,13 +60,15 @@ export default class User extends React.Component{
 
     noteAdded(event){
         this.setState({
-            note: event.target.value
+            [event.target.name]: event.target.value
         })
+        // console.log(this.state.note);
     }
 
     Added(){
         const note = this.state.note
-        axios.post('/user/note', note)
+        console.log(note);
+        Axios.post(`http://localhost:5000/${this.props.location.state.id}/note`, note)
         .then( response =>{
             console.log(response)
         })
@@ -75,26 +80,46 @@ export default class User extends React.Component{
             return <Redirect to="/logout" />
         }
 
-        let icon , info ,notinfo;
+        // let icon , info ,notinfo;
 
-        if(this.state.changeIcon === true){
-            icon =(
-                <>
-                <VscSave onClick={this.changeIcon} ></VscSave>
+        // if(this.state.changeIcon === true){
+        //     icon =(
+        //         <>
+        //         <VscSave onClick={this.changeIcon} ></VscSave>
                 
-                </>
-            );
-            info=(
-                <p>hi</p>
-            )
-        }
-        else{
-            icon =(
-                <VscEdit onClick={this.changeIcon} ></VscEdit>
-            )
-            notinfo=(
+        //         </>
+        //     );
+        //     info=(
+        //         <p>hi</p>
+        //     )
+        // }
+        // else{
+        //     icon =(
+        //         <VscEdit onClick={this.changeIcon} ></VscEdit>
+        //     )
+        //     notinfo=(
                 
-                <div className="info">
+               
+        //     )
+        // }
+
+        return(
+            
+            <div className="cont">
+                
+                <div className="logo">
+                    <img src={logo} width="60px" height="70px" alt="" />
+                    
+                    <h3>username</h3>
+                    <div className="editlogo" >
+                        {/* <VscEdit onClick={this.changeIcon} ></VscEdit> */}
+                        {/* {icon} */}
+                        </div>
+                </div>
+                
+                    {/* {info} */}
+                    {/* {notinfo} */}
+                    <div className="info">
                 <h3>Information  </h3>
                 <div className="inputTag">
                     <div className="email" >
@@ -110,9 +135,9 @@ export default class User extends React.Component{
                         <input key={this.state.id} type="text" name="password" value={this.state.password} placeholder="Password" />
                     </div>
                     <div>
-                        <textarea key={this.state.id} type='text' rows="4" cols="50" value={this.state.note}  onChange={this.noteAdded} />
+                        <textarea key={this.state.id} type='text' name='note' rows="4" cols="50" value={this.state.note}  onChange={this.noteAdded} /> 
                         <div>
-                            <button onAdd={this.Added} >Add this note</button>
+                            <button onClick={this.Added} >Add this note</button>
                         </div>
                     </div>
 
@@ -121,25 +146,6 @@ export default class User extends React.Component{
                     <button className="btnsize" onClick={this.logout}  >Logout</button>
                 </div>
             </div>
-            )
-        }
-
-        return(
-            
-            <div className="cont">
-                
-                <div className="logo">
-                    <img src={logo} width="60px" height="70px" alt="" />
-                    
-                    <h3>username</h3>
-                    <div className="editlogo" >
-                        {/* <VscEdit onClick={this.changeIcon} ></VscEdit> */}
-                        {icon}
-                        </div>
-                </div>
-                
-                    {info}
-                    {notinfo}
                 
                 
             </div>
