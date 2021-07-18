@@ -1,8 +1,8 @@
 import React from "react"
 import {Redirect} from "react-router-dom"
 import Axios from 'axios'
-import './css-work/css.css'
-import logo from './logo.png';
+import './css.css'
+import logo from '../assets/logo.png';
 import { VscEdit, VscSave } from "react-icons/vsc";
 // import axios from "axios";
 
@@ -24,7 +24,7 @@ export default class User extends React.Component{
             password:"",
             loggedIn,
             changeIcon:false,
-            note:" "
+            note:""
         }
         this.noteAdded = this.noteAdded.bind(this)
         this.Added= this.Added.bind(this)
@@ -65,14 +65,17 @@ export default class User extends React.Component{
         // console.log(this.state.note);
     }
 
-    Added(){ 
-        const note = this.state.note
-        console.log(note);
-        Axios.post(`http://localhost:5000/${this.props.location.state.id}/note`, note)
-        .then( response =>{
-            console.log(response)
-        })
-        .catch(error => console.log(error))
+   async Added(ev){ 
+        ev.preventDefault()
+        const { note } = this.state
+        try {
+            const token = await Axios.post("/note", { note })
+            console.log("done22");
+        } catch (err) {
+            this.setState({
+                error: err.message
+            })
+        }
     }
 
     render(){

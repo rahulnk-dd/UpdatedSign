@@ -1,7 +1,7 @@
 import React from "react"
 import {Redirect} from "react-router-dom"
 import Axios from "axios";
-import './css-work/register.css'
+import './register.css'
 
 export default class Login extends React.Component{
 

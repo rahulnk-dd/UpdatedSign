@@ -1,9 +1,9 @@
 import React from "react"
 import { Redirect, Link } from "react-router-dom"
 import Axios from "axios"
-import './css-work/login.css';
+import './login.css';
 import { VscMail } from "react-icons/vsc";
-import User from "./User";
+import User from "../User/User";
 
 export default class Login extends React.Component {
 

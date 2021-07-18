@@ -1,10 +1,10 @@
 
 import './App.css';
 import{Switch , Route} from 'react-router-dom'
-import Login from './component/Login';
-import User from './component/User';
-import Logout from './component/Logout';
-import Register from './component/Register'
+import Login from '../src/component/Login/Login';
+import User from '../src/component/User/User';
+import Logout from '../src/component/Logout/Logout';
+import Register from '../src/component/Register/Register'
 
 function App() {
   return (

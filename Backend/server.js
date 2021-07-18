@@ -5,7 +5,8 @@ const e = require('express');
 const secretykey = "rahul@321"
 const url = 'mongodb://localhost/AlienDBex'
 const mongoose = require('mongoose')
-const sigin = require('./modules')
+const sigin = require('../modules')
+const note = require('../module-note')
 var cors = require('cors')
 
 const app = express();
@@ -45,20 +46,18 @@ app.get('/:email/getData', (req, res) => {
     })
 })
 
-app.post('/:email/note', (request, response)=>{
-    console.log("99999999999999999")
-    console.log(request.body)
-    console.log('9999999999999999999')
-    const note = new sigin({note:request.body.note})
-    console.log("888888888888888888")
-    console.log(note);
-    console.log("888888888888888888")
+app.post('/note', (req,res)=>{
+    console.log("//////////////");
+    console.log(req.body);
+    console.log("//////////////");
 
-    note.save()
-    .then(data => response.json(data))
-    .catch(error => response.json(error))
+    const noteUser = new note({
+        note: req.body.note
+    })
+    noteUser.save()
+    .then(data=>res.json(data))
+    .catch(error=>res.json(error))
 })
-
 
 
 app.post('/reg', (request, response) => {
