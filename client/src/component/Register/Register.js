@@ -33,7 +33,7 @@ export default class Login extends React.Component{
         ev.preventDefault()
         const {username,email, password} = this.state
         try {
-            const token = await Axios.post("/reg", {username,email, password})
+            const token = await Axios.post("/app/reg", {username,email, password})
             // localStorage.setItem("token", token)
             this.setState({
                 loggedIn: true

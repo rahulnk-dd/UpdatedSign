@@ -32,7 +32,7 @@ export default class User extends React.Component{
  
     componentDidMount(props){
         console.log(this.props.location.state.id)
-        Axios.get(`http://localhost:5000/${this.props.location.state.id}/getData`)
+        Axios.get(`http://localhost:5000/app/${this.props.location.state.id}/getData`)
         .then(respone =>{
             console.log(respone);
             this.setState({
@@ -69,7 +69,7 @@ export default class User extends React.Component{
         ev.preventDefault()
         const { note } = this.state
         try {
-            const token = await Axios.post("/note", { note })
+            const token = await Axios.post("/app/note", { note })
             console.log("done22");
         } catch (err) {
             this.setState({
