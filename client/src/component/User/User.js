@@ -4,9 +4,6 @@ import Axios from 'axios'
 import './css.css'
 import logo from '../assets/logo.png';
 import { VscEdit, VscSave } from "react-icons/vsc";
-// import axios from "axios";
-
-let updateState
 
 export default class User extends React.Component{
 

@@ -18,7 +18,7 @@ export default class Login extends React.Component {
             email: "",
             password: "",
             loggedIn,
-            error: ""
+            error: "Login Please"
         }
         this.onChange = this.onChange.bind(this)
         this.formSubmit = this.formSubmit.bind(this)
@@ -41,7 +41,8 @@ export default class Login extends React.Component {
             })
         } catch (err) {
             this.setState({
-                error: err.message
+                // error: err.message
+                error: "Wrong Email ID or Password"
             })
         }
     }
@@ -61,33 +62,38 @@ export default class Login extends React.Component {
             )
         }
         return (
-            <div className="continor" >
-               
-                <div className="form" >
-                    <h1 className="head" > Login </h1>
-               
-                        
-                    <form onSubmit={this.formSubmit}>
-                        {/* <div className="icon-style" > <VscMail/> </div> */}
-                        <div className="input">
-                         <input  className="in" type="text" placeholder="Email" value={this.state.email} onChange={this.onChange} name="email" />
+            <div className="bodylogin">
+                <div className="box">
+            <div className="continorlogin" >
+                <div class="headlogin">Login</div> 
+                    <div>
+                        <div className="insidebox" >
+                            <form onSubmit={this.formSubmit}>
+                                <div className="inputbox">
+                                    <div className="inputname">Email:</div>
+                                    <input type="text" placeholder="Email" value={this.state.email} onChange={this.onChange} name="email" />
+                                </div>
+                                <div className="inputbox">
+                                    <div className="inputname">Password:</div>
+                                    <input type="password" placeholder="Password" value={this.state.password} onChange={this.onChange} name="password" />
+                                </div>
+                                <div className="buttonlogin">
+                                    <div>
+                                        <button class="btnlogin" type="submit"> Login </button>
+                                        <Link to='/reg' >
+                                            <button class="btnlogin" > Register </button>
+                                        </Link>
+                                    </div>
+                                </div>
+                            </form>
+                            <div className="errormsg">
+                            {this.state.error}
+                            </div>
                         </div>
-                        <div className="input">
-                            <input className="in" type="password" placeholder="Password" value={this.state.password} onChange={this.onChange} name="password" />
-                        </div>
-                        <div className="button">
-                            <button type="submit"> Login </button> <span></span>
-                            {/* <input type="submit" /> */}
-                            <Link to='/reg' >
-                                <button  > Register </button>
-                            </Link>
-                        </div>
-                    </form>
-                    <div className="error">
-                    {this.state.error}
                     </div>
-                </div>
-            </div>
+               </div>
+               </div>
+               </div>
 
         )
     }

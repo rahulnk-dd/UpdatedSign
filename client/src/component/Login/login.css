@@ -1,69 +1,87 @@
-*{
-    padding: 0;
-    margin: 0;
-    /* width: 90vw; */
-    /* height: 100vh; */
+.bodylogin{
+
+
+background: linear-gradient(to right, #A43931, #1D4350); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.box{
+    /* width: 100vw; */
+    height: 900px;
+    border: 0.1px solid;
+    scroll-behavior: none;
 }
 
-.continor{
-    /* height: 10em; */
-  display: flex;
-  align-items: center;
-  justify-content: center
+.headlogin{
+    margin-left: 177px;
+    margin-top: 24px;
+    font-weight: bold;
+    font-size: x-large;
 }
 
-.form{
-
-    margin-top: 250px;
-    height: 200px;
-    justify-content: center;
-    border: 2px solid rgb(253, 253, 253);
-    box-shadow: 1px 5px 8px 10px #888888;
-    padding: 15px 74px;
-    display: flex;
-    flex-direction: column;
-    width: 370px;
+.continorlogin{
+    border: 2px solid white;
+    border-radius: 5px;
+    width: 450px;
+    height: 435px;
+    margin: 167px auto;
+    background-color: white;
+    box-shadow: 4px 3px 9px rgb(0 0 0);
 }
-/* .input{
 
-    border: 2px solid red;
-    outline: none;
+/* .formbox{
+    width: 50%;
+    height: 50%;
+    margin: 69px auto;
+    border: 2px solid greenyellow;
 } */
 
-.input{
-    border-top: 0px;
-    border-left: 0px;
-    border-right: 0px;
-    border-bottom: 2px solid black;
-    margin: 7px 3px;
-    padding: 9px 6px;
-    width: 285px;
-    text-shadow: none;
-}
-.icon-style{
-    margin-left:0 ;
-}
-.in{
-    height: 33px;
-    font-weight: 45px;
-    border: none;
-    outline: none;
-    width: 285px;
-    
-}
-.input:hover{
-    cursor: text;
-}
-button{
-    background-color: white;
-   border-radius: 12px;
-    border: 2px solid black;
-    outline: none;
-    margin: 7px 3px;
-    padding: 9px 6px;
-    width: 75px;
+.inputbox{
+    margin: 48px 15px;
+  
 }
 
-.error{
-    color: red;
+.inputbox input{
+    height: 32px;
+    padding-left: 2px;
+    width: 364px;
+    border: 1px solid black;
+    border-radius: 2px;
+}
+
+.insidebox{
+    /* width: 255px; */
+    /* height: 329px; */
+    margin-left: 22px;
+    margin-top: 18px;
+    /* border: 2px solid rgb(139, 96, 46); */
+}
+
+.inputname{
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: larger;
+}
+
+.buttonlogin{
+    margin: 12px 15px;
+}
+
+.btnlogin{
+    background: black;
+    color: white;
+    margin-left: 51px;
+    width: 99px;
+    height: 33px;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.errormsg{
+    /* border: 2px solid red; */
+    text-align: center;
+    height: 25px;
+    width: 400px;
+    color: salmon;
+    background: white
 }
